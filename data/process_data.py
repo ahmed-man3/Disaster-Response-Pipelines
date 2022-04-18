@@ -5,6 +5,19 @@ from sqlalchemy import create_engine
 import numpy as np
 
 def load_data(messages_filepath, categories_filepath):
+    """
+    A function to load the data
+
+    We used Pandas function to read CSV files and then merge
+    the files. 
+
+    Parameters:
+    messages_filepath : CSV filepath for messages list.
+    categories_filepath: CSV filepath for categories list.
+
+    Returns:
+    merged Dataframe of messages and categories 
+    """
     # load messages dataset
     messages = pd.read_csv(messages_filepath)
     # load categories dataset
@@ -16,6 +29,17 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    """
+    A function to clean the data
+
+    To ensure that our Dataframe is cleaned and ready.
+
+    Parameters:
+    Dataframe : dataframe of the merged messages and categories 
+
+    Returns:
+    Cleaned Dataframe of messages and categories 
+    """
     # create a dataframe of the 36 individual category columns
     categories = df.categories.str.split(";", expand=True)
 
@@ -23,7 +47,7 @@ def clean_data(df):
     row = categories.iloc[:1]
 
     # use this row to extract a list of new column names for categories.
-    # one way is to apply a lambda function that takes everything 
+    # We applied a lambda function that takes everything 
     # up to the second to last character of each string with slicing
     category_colnames = row.apply(lambda x: x.str[0:-2])
     category_colnames=category_colnames.iloc[0,:].tolist()
@@ -51,6 +75,15 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    """
+    A function to save the cleaned dataframe.
+
+    We did this with pandas `to_sql` method combined with the SQLAlchemy library.
+
+    Parameters:
+    Dataframe : dataframe of the cleaned dataframe.
+    database_filename: Database file destintion.
+    """
     engine = create_engine(database_filename)
     df.to_sql(name='messages', con=engine, index=False, if_exists='replace') 
     
