@@ -52,7 +52,7 @@ def clean_data(df):
 
 def save_data(df, database_filename):
     engine = create_engine(database_filename)
-    df.to_sql(name='messages', con=engine, index=False) 
+    df.to_sql(name='messages', con=engine, index=False, if_exists='replace') 
     
 
 
