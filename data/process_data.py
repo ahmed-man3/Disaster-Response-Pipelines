@@ -2,6 +2,7 @@ import sys
 from unicodedata import name
 import pandas as pd
 from sqlalchemy import create_engine
+import numpy as np
 
 def load_data(messages_filepath, categories_filepath):
     # load messages dataset
@@ -35,8 +36,8 @@ def clean_data(df):
         # set each value to be the last character of the string
         categories[column] =  categories[column].astype("string").str[-1:]
         
-        # convert column from string to numeric
-        categories[column] = categories[column].astype("Int64")
+        # convert column from string to numeric and to binary (0,1)
+        categories[column] = np.where(categories[column].astype("Int64")<1,0,1)
 
     #Replace `categories` column in `df` with new category columns.
     df = df.drop(columns='categories')
