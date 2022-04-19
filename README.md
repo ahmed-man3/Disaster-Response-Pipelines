@@ -19,18 +19,18 @@ No necessary libraries to run the code except the ones available as part of the 
 ## File Descriptions <a name="files"></a>
 
 There are 3 main folders as follows:
-    1. app:
-        - run.py: Flask app 
-        - templates:
-            -master.html: index web page.
-            -go.html: classification result page of web app
-    2. data:
-        - disaster_categories.csv:  data to process 
-        - disaster_messages.csv:  data to process
-        - process_data.py: python file to process and clean the data
+1. app:
+    - run.py: Flask app 
+     - templates:
+        - master.html: index web page.
+        - go.html: classification result page of web app
+2. data:
+    - disaster_categories.csv:  data to process 
+    - disaster_messages.csv:  data to process
+    - process_data.py: python file to process and clean the data
 
-    3. models:
-        - train_classifier.py: python file to build and test the model
+3. models:
+    - train_classifier.py: python file to build and test the model
  
 ### Instructions<a name="Instructions"></a>
 
