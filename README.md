@@ -14,7 +14,9 @@ The project includes a web app where an emergency worker can input a new message
 
 ## Installation <a name="installation"></a>
 
-No necessary libraries to run the code except the ones available as part of the Anaconda distribution of Python.
+No necessary libraries to run the code except the ones available as part of the Anaconda distribution of Python. run the below to ensure having the correct pacages.
+install the necessary packages using requirements.txt by executing following command:
+    -   "pip install -r requirements.txt"
 
 ## File Descriptions <a name="files"></a>
 

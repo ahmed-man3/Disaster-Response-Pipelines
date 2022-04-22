@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 import pandas as pd
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
-import numpy as np
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
 import pickle
@@ -12,6 +11,8 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+
+
 
 def load_data(database_filepath):
     """

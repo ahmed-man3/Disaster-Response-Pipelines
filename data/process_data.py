@@ -1,5 +1,4 @@
 import sys
-from unicodedata import name
 import pandas as pd
 from sqlalchemy import create_engine
 import numpy as np
@@ -58,7 +57,7 @@ def clean_data(df):
     #Convert category values to just numbers 0 or 1.
     for column in categories:
         # set each value to be the last character of the string
-        categories[column] =  categories[column].astype("string").str[-1:]
+        categories[column] =  categories[column].astype("str").str[-1:]
         
         # convert column from string to numeric and to binary (0,1)
         categories[column] = np.where(categories[column].astype("Int64")<1,0,1)
