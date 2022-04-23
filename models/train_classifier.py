@@ -67,7 +67,7 @@ def tokenize(text):
 
 def build_model():
     """
-    A function to load the data
+    A function to build the model
 
     The script builds a pipeline that processes text and then performs
     multi-output classification on the 36 categories in the dataset.

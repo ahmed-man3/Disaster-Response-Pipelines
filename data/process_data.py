@@ -60,7 +60,7 @@ def clean_data(df):
         categories[column] =  categories[column].astype("str").str[-1:]
         
         # convert column from string to numeric and to binary (0,1)
-        categories[column] = np.where(categories[column].astype("Int64")<1,0,1)
+        categories[column] = np.where(categories[column].astype("int64")<1,0,1)
 
     #Replace `categories` column in `df` with new category columns.
     df = df.drop(columns='categories')
